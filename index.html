@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melam 3.0 2026 — Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FBF3DE;
+    --cream-deep: #F3E7C4;
+    --leaf: #1E4A2E;
+    --leaf-light: #3E7A4E;
+    --leaf-pale: #E4EEDF;
+    --gold: #C99A2E;
+    --gold-soft: #E8CE8C;
+    --vermilion: #C1442D;
+    --marigold: #E2932B;
+    --ink: #241C13;
+    --paper-line: rgba(36,28,19,0.12);
+    --radius: 4px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; overflow-x: hidden; }
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  h1,h2,h3{
+    font-family: 'Rozha One', serif;
+    font-weight: 400;
+    margin: 0;
+    color: var(--leaf);
+  }
+  .eyebrow{
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    color: var(--vermilion);
+  }
+  a{ color: inherit; }
+  ::selection{ background: var(--gold-soft); }
+  :focus-visible{
+    outline: 2.5px solid var(--vermilion);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 40px;
+    overflow: hidden;
+  }
+
+  /* Container for Maveli, centered at the top */
+  .hero-visual-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto 18px;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  /* 3D Maveli Image Styling & Waving Animation */
+  .maveli-wrap {
+    width: min(42vw, 260px);
+    margin: 0 auto;
+    z-index: 2;
+    animation: bloom 1.6s ease-out;
+  }
+
+  .maveli-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform-origin: bottom center;
+    animation: gentleWave 2s ease-in-out infinite alternate;
+  }
+
+  /* Smooth body wave motion */
+  @keyframes gentleWave {
+    0% { transform: rotate(0deg) translateY(0); }
+    100% { transform: rotate(4deg) translateY(-4px); }
+  }
+
+  @keyframes bloom{
+    from{ transform: scale(0.7); opacity: 0; }
+    to{ transform: scale(1); opacity: 1; }
+  }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .hero .sub{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--leaf-light);
+    margin-top: 14px;
+    max-width: 480px;
+  }
+  .hero .meta-strip{
+    display:flex;
+    gap: 26px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink);
+  }
+  .hero .meta-strip span{ display:block; }
+  .hero .meta-strip .label{ color: var(--vermilion); letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.68rem; margin-bottom: 4px;}
+  .venue-link{ color: #1a56db; text-decoration: underline; }
+  .venue-link:hover{ color: var(--vermilion); }
+  .hero .meta-strip a{ text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+  .hero .meta-strip a:hover{ color: var(--vermilion); }
+  .cta-btn{
+    margin-top: 38px;
+    background: var(--leaf);
+    color: var(--cream);
+    border: none;
+    padding: 16px 40px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.06em;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+  }
+  .cta-btn:hover{ background: var(--vermilion); transform: translateY(-2px); }
+
+  section{ padding: 90px 20px; position: relative; }
+  .section-inner{ max-width: 760px; margin: 0 auto; }
+  .divider{
+    max-width: 760px;
+    margin: 0 auto;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--paper-line) 0 6px, transparent 6px 12px);
+  }
+
+  .schedule{ background: var(--leaf); color: var(--cream); }
+  .schedule .section-inner{ max-width: 900px; }
+  .schedule h2{ color: var(--cream); font-size: 1.9rem; margin-bottom: 8px; }
+  .schedule .eyebrow{ color: var(--gold-soft); }
+  .sched-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px,1fr));
+    gap: 1px;
+    background: rgba(251,243,222,0.18);
+    margin-top: 34px;
+    border: 1px solid rgba(251,243,222,0.18);
+  }
+  .sched-item{
+    background: var(--leaf);
+    padding: 22px 20px;
+  }
+  .sched-item .time{ font-family:'Space Mono',monospace; font-size:0.72rem; color: var(--marigold); letter-spacing:0.08em; }
+  .sched-item .what{ font-family:'Rozha One',serif; font-size:1.25rem; margin-top:8px; }
+  .sched-item .where{ font-size:0.82rem; color: var(--leaf-pale); opacity:0.8; margin-top:6px; }
+  .sched-item.full-width {
+     grid-column: 1 /-1;
+     text-align:center;
+     display:flex;
+     flex-direction:column;
+     align-items:center;
+  }
+
+  .register{ background: var(--cream-deep); }
+  .register h2{ font-size: 2.2rem; }
+  .register .eyebrow{ margin-bottom: 10px; }
+  .form-intro{ color: var(--leaf-light); font-size:0.95rem; max-width: 520px; margin-top: 10px;}
+
+  .petal-picker{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 12px;
+    margin: 34px 0 40px;
+  }
+  .petal{
+    border: 1.5px solid var(--paper-line);
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 18px 16px;
+    cursor: pointer;
+    text-align:left;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+    font-family: inherit;
+  }
+  .petal:hover{ transform: translateY(-2px); }
+  .petal .dot{ width:11px; height:11px; border-radius:50%; margin-bottom:12px; }
+  .petal .name{ font-weight:600; font-size:0.95rem; color: var(--ink); }
+  .petal .desc{ font-size: 0.76rem; color: #6b6152; margin-top:4px; }
+  .petal[data-cat="sadya"] .dot{ background: var(--vermilion); }
+  .petal[data-cat="games"] .dot{ background: var(--marigold); }
+  .petal[data-cat="cultural"] .dot{ background: var(--leaf-light); }
+  .petal[data-cat="DJ"] .dot{ background: #0ea5e9; }
+  .petal.selected{ border-color: var(--ink); }
+  .petal.selected[data-cat="sadya"]{ background: #F3D8CF; border-color: var(--vermilion); }
+  .petal.selected[data-cat="games"]{ background: #FBE3C0; border-color: var(--marigold); }
+  .petal.selected[data-cat="cultural"]{ background: var(--leaf-pale); border-color: var(--leaf-light); }
+  .petal.selected[data-cat="DJ"]{ background: #e0f2fe; border-color: #0ea5e9; }
+  form{ display:flex; flex-direction:column; gap: 22px; }
+  .field{ display:flex; flex-direction:column; gap:7px; }
+  .field label{
+    font-family:'Space Mono',monospace;
+    font-size:0.72rem;
+    text-transform: uppercase;
+    letter-spacing:0.07em;
+    color: var(--leaf);
+  }
+  .field .hint{ font-size:0.72rem; color:#8a7f6c; font-family:'Work Sans',sans-serif; text-transform:none; letter-spacing:0; }
+  input[type=text], input[type=tel], input[type=email], input[type=number], select, textarea{
+    font-family:'Work Sans',sans-serif;
+    font-size:0.95rem;
+    padding: 12px 14px;
+    border: 1.5px solid var(--paper-line);
+    background: var(--cream);
+    border-radius: var(--radius);
+    color: var(--ink);
+  }
+  textarea{ resize: vertical; min-height: 80px; }
+  .row2{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 560px){ .row2{ grid-template-columns: 1fr; } }
+  .radio-row{ display:flex; gap:18px; flex-wrap:wrap; }
+  .radio-row label{ display:flex; align-items:center; gap:7px; font-family:'Work Sans',sans-serif; text-transform:none; letter-spacing:0; font-size:0.9rem; color:var(--ink); }
+
+  .conditional{
+    border-left: 2px solid var(--gold);
+    padding-left: 16px;
+    display:none;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .conditional.show{ display:flex; }
+
+  .submit-row{ display:flex; align-items:center; gap:18px; margin-top: 10px; }
+  .submit-btn{
+    background: var(--vermilion);
+    color: var(--cream);
+    border:none;
+    padding: 15px 36px;
+    font-family:'Space Mono',monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size:0.85rem;
+    border-radius: var(--radius);
+    cursor:pointer;
+    transition: background 0.2s ease;
+  }
+  .submit-btn:hover{ background: var(--leaf); }
+  .submit-btn:disabled{ opacity:0.6; cursor:wait; }
+  .status-msg{ font-family:'Space Mono',monospace; font-size:0.78rem; color: var(--leaf-light); }
+  .status-msg.error{ color: var(--vermilion); }
+
+  .error-text{ font-size:0.75rem; color: var(--vermilion); font-family:'Work Sans',sans-serif; text-transform:none; letter-spacing:0; display:none; }
+  .field.invalid input, .field.invalid select{ border-color: var(--vermilion); }
+  .field.invalid .error-text{ display:block; }
+
+  /* confirmation / payment step */
+  .confirm-panel{
+    display:none;
+    padding: 60px 20px 90px;
+  }
+  .confirm-panel.show{ display:block; }
+  .confirm-panel .section-inner{ max-width: 620px; }
+  .confirm-panel .center-text{ text-align:center; }
+  .confirm-panel .idtag{
+    display:inline-block;
+    margin-top: 18px;
+    font-family:'Space Mono',monospace;
+    font-size: 0.85rem;
+    background: var(--leaf);
+    color: var(--cream);
+    padding: 8px 18px;
+    border-radius: 30px;
+  }
+  .confirm-panel p.lede{ color: var(--leaf-light); max-width: 460px; margin: 18px auto 0; }
+
+  .amount-card{
+    background: var(--leaf);
+    color: var(--cream);
+    border-radius: var(--radius);
+    padding: 28px 26px;
+    text-align: center;
+    margin: 34px 0 24px;
+  }
+  .amount-card .label{
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold-soft);
+  }
+  .amount-card .amount{
+    font-family:'Rozha One',serif;
+    font-size: 2.4rem;
+    margin-top: 8px;
+  }
+  .amount-card .amount-note{
+    font-family:'Work Sans',sans-serif;
+    font-size: 0.8rem;
+    color: var(--leaf-pale);
+    margin-top: 6px;
+  }
+
+  .details-card{
+    background: var(--cream);
+    border: 1.5px solid var(--paper-line);
+    border-radius: var(--radius);
+    padding: 6px 24px;
+  }
+  .detail-row{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .detail-row:last-child{ border-bottom: none; }
+  .detail-row .k{
+    font-family:'Space Mono',monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--leaf);
+    flex-shrink: 0;
+  }
+  .detail-row .v{
+    font-family:'Space Mono',monospace;
+    font-size: 0.9rem;
+    color: var(--ink);
+    text-align: right;
+    word-break: break-word;
+  }
+  .copy-btn{
+    background: none;
+    border: 1.5px solid var(--paper-line);
+    color: var(--leaf);
+    font-family:'Space Mono',monospace;
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-left: 10px;
+    flex-shrink: 0;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .copy-btn:hover{ background: var(--leaf); color: var(--cream); }
+  .copy-btn.copied{ background: var(--vermilion); color: var(--cream); border-color: var(--vermilion); }
+
+  .reference-note{
+    margin-top: 24px;
+    background: #FBE3C0;
+    border-left: 3px solid var(--marigold);
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    color: #6b4a12;
+  }
+
+  footer{
+    text-align:center;
+    padding: 40px 20px 60px;
+    font-family:'Space Mono',monospace;
+    font-size: 0.72rem;
+    color: #8a7f6c;
+  }
+  /* ---------- MOBILE TWEAKS ---------- */
+  @media (max-width: 600px){
+    section{ padding: 56px 16px; }
+    .hero{ padding: 40px 16px 30px; min-height: auto; }
+    .hero h1{ font-size: clamp(2rem, 9vw, 2.8rem); }
+    .cta-btn, .submit-btn{ width: 100%; text-align: center; }
+    .submit-row{ flex-direction: column; align-items: stretch; gap: 10px; }
+    .petal-picker{ grid-template-columns: 1fr 1fr; }
+
+    .maveli-wrap { width: min(50vw, 180px); }
+
+    .detail-row{
+      flex-wrap: wrap;
+      row-gap: 8px;
+    }
+    .detail-row .v{
+      flex: 1 1 100%;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+    .copy-btn{ margin-left: 0; }
+
+    .amount-card .amount{ font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-visual-container">
+    <!-- 3D Maveli Character Image -->
+    <div class="maveli-wrap">
+      <img src="image_1-removebg-preview.png" alt="Waving King Maveli" class="maveli-img">
+    </div>
+  </div>
+
+  <p class="eyebrow">Thiruvonam · Community Gathering</p>
+  <h1>Melam 3.0 <br>2026</h1>
+  <p class="sub">A day of Onasadya, games, and Thiruvathira — register once, join in every way you like.</p>
+
+  <div class="meta-strip">
+    <div><span class="label">Date</span><span>15 Aug 2026 · Thiruvonam</span></div>
+    <div><span class="label">Time</span><span>09:00 AM onwards</span></div>
+    <div><span class="label">Venue</span><span><a class="venue-link" href="https://www.google.com/maps/search/?api=1&query=Heidestrasse+318%2C+06849+Dessau" target="_blank" rel="noopener">Heidestrasse 318 (Dessau 06849)</a></span></div>
+  </div>
+
+  <button class="cta-btn" onclick="document.getElementById('register').scrollIntoView()">Register now</button>
+</header>
+
+<!-- ============ SCHEDULE ============ -->
+<section class="schedule">
+  <div class="section-inner">
+    <p class="eyebrow">The day, roughly</p>
+    <h2>Onnu chernnu...&nbsp;</h2>
+    <div class="sched-grid">
+      <div class="sched-item"><div class="time"></div><div class="what">Pookalam</div><div class="where">Main courtyard</div></div>
+      <div class="sched-item"><div class="time"></div><div class="what">Thiruvathira &amp; cultural show </div><div class="where">Main stage</div></div>
+      <div class="sched-item"><div class="time"></div><div class="what">Onasadya</div><div class="where">Dining hall</div></div>
+      <div class="sched-item"><div class="time"></div><div class="what">Games</div><div class="where">Ground</div></div>
+      <div class="sched-item full-width"><div class="time"></div><div class="what">DJ</div><div class="where">Main hall</div></div>
+    </div>
+  </div>
+</section>
+<img src="melam2.0.mainpicjpeg" alt="Onam celebration" style="max-width:100%; border-radius:6px;">
+<!-- ============ REGISTER ============ -->
+<section class="register" id="register">
+  <div class="section-inner">
+    <p class="eyebrow">Registration</p>
+    <h2>Tell us how you'll join</h2>
+    <p class="form-intro">Pick everything that applies — the form below adjusts to what you choose. One entry per family or individual is enough. Payment details are shown right after you submit.</p>
+
+    <div class="petal-picker" id="petalPicker">
+      <button type="button" class="petal" data-cat="sadya">
+        <div class="dot"></div>
+        <div class="name">Onasadya</div>
+        <div class="desc">Join the feast on the banana leaf</div>
+      </button>
+      <button type="button" class="petal" data-cat="games">
+        <div class="dot"></div>
+        <div class="name">Games</div>
+        <div class="desc">Tug of war, Uriyadi, Kabaddi &amp; more</div>
+      </button>
+      <button type="button" class="petal" data-cat="cultural">
+        <div class="dot"></div>
+        <div class="name">Cultural program</div>
+        <div class="desc">Dance, song or Thiruvathira</div>
+      </button>
+      <button type="button" class="petal" data-cat="DJ">
+        <div class="dot"></div>
+        <div class="name">DJ</div>
+        <div class="desc">Let's Dance</div>
+      </button>
+    </div>
+
+    <form id="regForm" novalidate>
+      <div class="row2">
+        <div class="field" id="f-name">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name">
+          <span class="error-text">Please enter your name.</span>
+        </div>
+        <div class="field" id="f-phone">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel">
+          <span class="error-text">Please enter a phone number.</span>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field" id="f-email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email">
+          <span class="hint">We'll email your entry QR code here</span>
+          <span class="error-text">Please enter a valid email — it's how we send your QR code.</span>
+        </div>
+        <div class="field" id="f-guests">
+          <label for="guests">Total attending (incl. you)</label>
+          <input type="number" id="guests" name="guests" min="1" value="1">
+        </div>
+      </div>
+
+      <!-- Games conditional -->
+      <div class="conditional" id="c-games">
+        <div class="field">
+          <label for="games-list">Which games?</label>
+          <select id="games-list" name="games" multiple size="4">
+            <option value="Vadam vali"> Vadam vali</option>
+            <option value="Uriyadi">Uriyadi</option>
+            <option value="Kasserakalli">Kasserakalli</option>
+            <option value="Lemon spoon race">Lemon spoon race</option>
+            <option value="Other">Other</option>
+          </select>
+          <span class="hint">Cmd/Ctrl-click to choose more than one</span>
+        </div>
+      </div>
+
+      <!-- Cultural conditional -->
+      <div class="conditional" id="c-cultural">
+        <div class="field">
+          <label for="performance">What will you perform?</label>
+          <textarea id="performance" name="performance" placeholder="e.g. Thiruvathira,Dance,Song and other cultural arts.."></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Anything else we should know</label>
+        <textarea id="message" name="message" placeholder="Allergies, accessibility needs, questions..."></textarea>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit-btn" id="submitBtn">Submit registration</button>
+        <span class="status-msg" id="statusMsg"></span>
+      </div>
+    </form>
+  </div>
+
+  <!-- ============ POST-SUBMIT STEP 1: PAYMENT ============ -->
+  <div class="confirm-panel" id="paymentPanel">
+    <div class="section-inner">
+      <div class="center-text">
+        <p class="eyebrow">Step 2 of 2</p>
+        <h2>Send your contribution</h2>
+        <p class="lede">Your registration is saved. Please transfer the amount below, then tap Continue.</p>
+        <div class="idtag" id="idTag"></div>
+      </div>
+
+      <div class="amount-card">
+        <div class="label">Amount</div>
+        <div class="amount">€ 19.99</div>
+        <div class="amount-note">per person</div>
+      </div>
+
+      <div class="details-card">
+        <div class="detail-row">
+          <span class="k">Account holder</span>
+          <span class="v">Vishnu Mothanga</span>
+        </div>
+        <div class="detail-row">
+          <span class="k">IBAN</span>
+          <span class="v" id="ibanValue">DE62870700240103956900</span>
+          <button type="button" class="copy-btn" data-copy-target="ibanValue">Copy</button>
+        </div>
+        <div class="detail-row">
+          <span class="k">BIC / SWIFT</span>
+          <span class="v">DEUTDEDBCHE</span>
+        </div>
+        <div class="detail-row">
+          <span class="k">Bank name</span>
+          <span class="v">Deutsche Bank</span>
+        </div>
+        <div class="detail-row">
+          <span class="k">Reference</span>
+          <span class="v" id="refValue"></span>
+          <button type="button" class="copy-btn" data-copy-target="refValue">Copy</button>
+        </div>
+      </div>
+
+      <div class="reference-note">
+        <strong>Important:</strong> always include your reference (shown above — your name plus your registration ID) in the transfer note. Without it, we can't confirm your payment.
+      </div>
+
+      <div class="center-text" style="margin-top:30px;">
+        <button type="button" class="submit-btn" id="paymentContinueBtn">I've made the payment — Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ POST-SUBMIT STEP 2: THANK YOU ============ -->
+  <div class="confirm-panel" id="thanksPanel">
+    <div class="section-inner center-text">
+      <p class="eyebrow">All set</p>
+      <h2>Kandumuttam...</h2>
+      <p class="lede">Thank you for registering. We are currently verifying your payment details. Once confirmed, your ticket with the QR code will be sent to your registered email address within 48 hours.
+(Please be sure to check your spam or junk folder if you don't see it in your inbox.)</p>
+      <div class="idtag" id="idTagFinal"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made for the community, edit freely · Powered by a free Google Sheet backend
+</footer>
+
+<script>
+// ---------- Payment continue -> thank you ----------
+document.getElementById('paymentContinueBtn').addEventListener('click', () => {
+  document.getElementById('paymentPanel').classList.remove('show');
+  document.getElementById('thanksPanel').classList.add('show');
+  document.getElementById('thanksPanel').scrollIntoView({ behavior: 'smooth' });
+});
+
+// ---------- Payment copy buttons ----------
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = document.getElementById(btn.dataset.copyTarget);
+    navigator.clipboard.writeText(target.textContent.trim()).then(() => {
+      const original = btn.textContent;
+      btn.textContent = 'Copied';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = original; btn.classList.remove('copied'); }, 1500);
+    });
+  });
+});
+
+// ---------- Petal picker <-> conditional sections ----------
+const selected = new Set();
+document.querySelectorAll('.petal').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.cat;
+    btn.classList.toggle('selected');
+    const cond = document.getElementById('c-' + cat);
+    if(btn.classList.contains('selected')){
+      selected.add(cat);
+      if(cond) cond.classList.add('show');
+    } else {
+      selected.delete(cat);
+      if(cond) cond.classList.remove('show');
+    }
+  });
+});
+
+// ---------- IMPORTANT: paste your Google Apps Script Web App URL here ----------
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw9eZZs6B33U1X_sOcKHkEYYD4AMhboi4lKJFL8PKHOf8xfrwQPHWgYtqdXC8oLtDJivQ/exec";
+
+function validate(){
+  let ok = true;
+  const name = document.getElementById('name');
+  const phone = document.getElementById('phone');
+  const email = document.getElementById('email');
+  [ [name,'f-name'], [phone,'f-phone'] ].forEach(([el,id]) => {
+    const wrap = document.getElementById(id);
+    if(!el.value.trim()){ wrap.classList.add('invalid'); ok = false; }
+    else wrap.classList.remove('invalid');
+  });
+  const emailWrap = document.getElementById('f-email');
+  if(!email.value.trim() || !email.value.includes('@')){ emailWrap.classList.add('invalid'); ok = false; }
+  else emailWrap.classList.remove('invalid');
+  return ok;
+}
+
+document.getElementById('regForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if(!validate()) return;
+
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('statusMsg');
+  btn.disabled = true;
+  status.textContent = 'Submitting...';
+  status.classList.remove('error');
+
+  const gamesSelect = document.getElementById('games-list');
+  const chosenGames = Array.from(gamesSelect.selectedOptions).map(o => o.value);
+  const dietEl = document.querySelector('input[name="diet"]:checked');
+  const nameVal = document.getElementById('name').value.trim();
+
+  const payload = {
+    name: nameVal,
+    phone: document.getElementById('phone').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    guests: document.getElementById('guests').value,
+    categories: Array.from(selected),
+    diet: selected.has('sadya') && dietEl ? dietEl.value : '',
+    games: selected.has('games') ? chosenGames.join(', ') : '',
+    performance: selected.has('cultural') ? document.getElementById('performance').value.trim() : '',
+    message: document.getElementById('message').value.trim(),
+    submittedAt: new Date().toISOString()
+  };
+
+  const regId = 'ONM-' + Math.random().toString(36).slice(2,8).toUpperCase();
+
+  try{
+    if(SCRIPT_URL.startsWith('PASTE_')){
+      console.warn('Set SCRIPT_URL to your deployed Google Apps Script web app URL to actually save entries.');
+    } else {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ ...payload, regId })
+      });
+    }
+    document.getElementById('regForm').style.display = 'none';
+    document.getElementById('petalPicker').style.display = 'none';
+    document.querySelector('.form-intro').style.display = 'none';
+    document.getElementById('idTag').textContent = regId;
+    document.getElementById('idTagFinal').textContent = regId;
+    document.getElementById('refValue').textContent = (nameVal || 'Guest') + ' ' + regId;
+    document.getElementById('paymentPanel').classList.add('show');
+    document.getElementById('paymentPanel').scrollIntoView({ behavior: 'smooth' });
+    status.textContent = '';
+  } catch(err){
+    status.textContent = 'Something went wrong — please try again.';
+    status.classList.add('error');
+  } finally {
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
